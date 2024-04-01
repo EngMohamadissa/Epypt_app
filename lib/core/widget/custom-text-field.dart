@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CustomTextfield extends StatelessWidget {
-  const CustomTextfield({
-    super.key,
-    this.maxLength,
-    this.keyboardType,
-    this.hintText,
-    this.onChanged,
-    this.obscureText = false,
-    this.prefixIcon,
-    this.label,
-    this.hintStyle,
-    this.controller,
-    required String hint,
-    this.suffixIcon,
-  });
+  const CustomTextfield(
+      {super.key,
+      this.maxLength,
+      this.keyboardType,
+      this.hintText,
+      this.onChanged,
+      this.obscureText = false,
+      this.prefixIcon,
+      this.label,
+      this.hintStyle,
+      this.controller,
+      this.hint,
+      this.suffixIcon,
+      this.labelStyle,
+      this.floatingLabelStyle,
+      this.maxLines = 1,
+      // this.minLines,
+      this.isDense});
+  final String? hint;
   final Function(String)? onChanged;
   final TextInputType? keyboardType;
   final Icon? prefixIcon;
@@ -25,11 +31,18 @@ class CustomTextfield extends StatelessWidget {
   final TextStyle? hintStyle;
   final TextEditingController? controller;
   final int? maxLength;
+  final TextStyle? labelStyle;
+  final TextStyle? floatingLabelStyle;
+  final int? maxLines;
+  // final int? minLines;
+  final bool? isDense;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
       child: TextFormField(
+        // minLines: minLines,
+        maxLines: maxLines,
         maxLength: maxLength,
         keyboardType: keyboardType,
         controller: controller,
@@ -42,9 +55,14 @@ class CustomTextfield extends StatelessWidget {
         },
         onChanged: onChanged,
         decoration: InputDecoration(
+          // contentPadding: EdgeInsets.all(10),
+          isDense: isDense,
           suffixIcon: suffixIcon,
           // تحديد حجم الحاشية
           label: label,
+          floatingLabelStyle: floatingLabelStyle,
+          labelStyle: labelStyle,
+
           prefixIcon: prefixIcon,
           hintText: hintText,
           hintStyle: hintStyle,

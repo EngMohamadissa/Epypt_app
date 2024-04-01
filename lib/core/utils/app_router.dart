@@ -1,3 +1,5 @@
+import 'package:eghypt_c/Featuer/home/presentation/view/home_view.dart';
+import 'package:eghypt_c/test_code.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../Featuer/Auth/forgetpassword/presentation/view/forgetpassowrd_view.dart';
@@ -11,6 +13,7 @@ abstract class AppRouter {
   static const kForgetView = '/forgetpassowrdView';
   static const kResetpasswordView = '/resetpasswordView';
   static const kVeirfycodeView = '/veirfycodeView';
+  static const kHomeView = '/homeView';
 
   static final router = GoRouter(
     routes: [
@@ -33,6 +36,10 @@ abstract class AppRouter {
       GoRoute(
         path: kVeirfycodeView,
         builder: (context, state) => const VeirfyCodeView(),
+      ),
+      GoRoute(
+        path: kHomeView,
+        builder: (context, state) => const HomeView(),
       ),
     ],
   );

@@ -1,4 +1,6 @@
+import 'package:eghypt_c/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../../core/styles.dart';
 import '../../../../../../core/utils/funcations/build_linear_greadient.dart';
 import '../../../../../../core/widget/custom_botton.dart';
@@ -91,6 +93,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   void validateMethod() {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.validate();
+      GoRouter.of(context).push(AppRouter.kHomeView);
     } else {
       autovalidateMode = AutovalidateMode.always;
       setState(() {});
