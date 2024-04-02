@@ -16,10 +16,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     'assets/images/test_image.png',
     'assets/images/test_image.png',
     'assets/images/test_image.png',
+
     // Add more image URLs
   ];
 
-  final PageController _pageController = PageController(viewportFraction: 0.92);
+  final PageController _pageController = PageController();
   late Timer _timer;
 
   @override
@@ -30,12 +31,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         _pageController.animateToPage(
           0,
           duration: const Duration(milliseconds: 900),
-          curve: Curves.easeIn,
+          curve: Curves.easeInToLinear,
         );
       } else {
         _pageController.nextPage(
           duration: const Duration(milliseconds: 900),
-          curve: Curves.easeIn,
+          curve: Curves.linear,
         );
       }
     });
@@ -55,6 +56,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         Container(
           margin: const EdgeInsets.symmetric(vertical: 6.0),
           height: 200,
+          width: 250,
           child: PageView.builder(
             controller: _pageController,
             onPageChanged: (index) {
@@ -70,7 +72,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   borderRadius: BorderRadius.circular(24),
                   color: Colors.red,
                   image: DecorationImage(
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                     image: AssetImage(
                       imageUrls[index],
                     ),

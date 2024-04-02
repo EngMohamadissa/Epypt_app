@@ -12,10 +12,6 @@ class MyData extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.yellow,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.phone_callback_outlined),
-        ),
         title: Text(
           'بياناتي',
           style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),

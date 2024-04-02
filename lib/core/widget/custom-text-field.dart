@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CustomTextfield extends StatelessWidget {
   const CustomTextfield(
@@ -19,12 +18,13 @@ class CustomTextfield extends StatelessWidget {
       this.floatingLabelStyle,
       this.maxLines = 1,
       // this.minLines,
-      this.isDense});
+      this.isDense,
+      this.validator});
   final String? hint;
   final Function(String)? onChanged;
   final TextInputType? keyboardType;
-  final Icon? prefixIcon;
-  final Icon? suffixIcon;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
   final String? hintText;
   final bool? obscureText;
   final Text? label;
@@ -34,6 +34,7 @@ class CustomTextfield extends StatelessWidget {
   final TextStyle? labelStyle;
   final TextStyle? floatingLabelStyle;
   final int? maxLines;
+  final String? Function(String?)? validator;
   // final int? minLines;
   final bool? isDense;
   @override
@@ -47,12 +48,7 @@ class CustomTextfield extends StatelessWidget {
         keyboardType: keyboardType,
         controller: controller,
         obscureText: obscureText!,
-        validator: (data) {
-          if (data!.isEmpty) {
-            return 'field is required';
-          }
-          return null;
-        },
+        validator: validator,
         onChanged: onChanged,
         decoration: InputDecoration(
           // contentPadding: EdgeInsets.all(10),

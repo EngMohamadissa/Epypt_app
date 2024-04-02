@@ -12,20 +12,19 @@ class RowNavigatortoForgetpassowrd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        const SizedBox(
+          width: 30,
+        ),
         GestureDetector(
           onTap: () {
             GoRouter.of(context).push(AppRouter.kForgetView);
           },
-          child: Text('ForgetPassowrd?',
+          child: Text('هل نسيت كلمة المرور؟',
               style: Styles.textStyle14.copyWith(
                   fontWeight: FontWeight.bold,
                   color: const Color.fromARGB(255, 42, 42, 42))),
         ),
-        const SizedBox(
-          width: 30,
-        )
       ],
     );
   }

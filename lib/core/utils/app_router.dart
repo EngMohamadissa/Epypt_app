@@ -9,11 +9,13 @@ import '../../Featuer/Auth/login/presentation/view/login_view.dart';
 import '../../Featuer/Auth/regiseter/presentaiton/view/rigester_view.dart';
 
 abstract class AppRouter {
+  static const kLoginView = '/';
   static const kRigesterView = '/rigesterView';
   static const kForgetView = '/forgetpassowrdView';
   static const kResetpasswordView = '/resetpasswordView';
   static const kVeirfycodeView = '/veirfycodeView';
   static const kHomeView = '/homeView';
+  static const kMyDataView = '/mydataView';
 
   static final router = GoRouter(
     routes: [
@@ -40,6 +42,10 @@ abstract class AppRouter {
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: kMyDataView,
+        builder: (context, state) => const MyData(),
       ),
     ],
   );

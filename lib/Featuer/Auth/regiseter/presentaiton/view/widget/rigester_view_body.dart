@@ -1,4 +1,7 @@
+import 'package:eghypt_c/core/utils/app_router.dart';
+import 'package:eghypt_c/core/utils/funcations/validat_funcation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/styles.dart';
 import '../../../../../../core/utils/funcations/build_linear_greadient.dart';
@@ -43,6 +46,7 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
               height: 150,
             ),
             const CustomTextfield(
+              validator: checkValidate,
               prefixIcon: Icon(Icons.person),
               label: Text(
                 'Enter your first name',
@@ -55,6 +59,7 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
               height: 20,
             ),
             const CustomTextfield(
+              validator: checkValidate,
               prefixIcon: Icon(Icons.person_2),
               label: Text(
                 'Enter your last name',
@@ -67,6 +72,7 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
               height: 20,
             ),
             const CustomTextfield(
+              validator: checkValidate,
               prefixIcon: Icon(Icons.email),
               label: Text(
                 'Enter your email',
@@ -79,6 +85,7 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
               height: 20,
             ),
             const CustomTextfield(
+              validator: checkValidate,
               obscureText: true,
               prefixIcon: Icon(Icons.lock),
               hint: 'passowrd',
@@ -92,12 +99,7 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
             ),
             CustomButon(
               onTap: () {
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.validate();
-                } else {
-                  autovalidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
+                validateMethod();
               },
               text: 'Rigester',
             ),
@@ -105,5 +107,15 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
         ),
       ),
     );
+  }
+
+  void validateMethod() {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.validate();
+      GoRouter.of(context).push(AppRouter.kMyDataView);
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+      setState(() {});
+    }
   }
 }

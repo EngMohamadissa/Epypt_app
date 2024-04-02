@@ -21,7 +21,7 @@ class RowNavigatortoRigesterView extends StatelessWidget {
             onTap: () {
               GoRouter.of(context).push(AppRouter.kRigesterView);
             },
-            child: Text('Rigester',
+            child: Text('تسجيل',
                 style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.bold,
                     color: const Color.fromARGB(255, 42, 42, 42)))),

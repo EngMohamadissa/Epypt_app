@@ -1,4 +1,5 @@
 import 'package:eghypt_c/core/utils/app_router.dart';
+import 'package:eghypt_c/core/utils/funcations/validat_funcation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../../core/styles.dart';
@@ -51,20 +52,24 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             const CustomTextfield(
               prefixIcon: Icon(Icons.email),
               label: Text(
-                'Enter your email',
+                'ادخل الأيمل',
               ),
-              hint: 'Email',
-              hintStyle: TextStyle(color: Colors.black),
+              hint: 'الأيميل',
+              hintText: '----@gmail.com',
             ),
             const SizedBox(
               height: 20,
             ),
-            const CustomTextfield(
+            CustomTextfield(
+              validator: checkValidate,
               obscureText: true,
+              suffixIcon: IconButton(
+                  onPressed: () {}, icon: Icon(Icons.remove_red_eye)),
               prefixIcon: Icon(Icons.lock),
-              hint: 'passowrd',
+              hint: 'كلمة المرور',
+              hintText: '*******',
               label: Text(
-                'Enter your password',
+                'ادخل كلمة المرور',
               ),
             ),
             const SizedBox(
@@ -78,7 +83,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               onTap: () {
                 validateMethod();
               },
-              text: 'Login',
+              text: 'تسجيل',
             ),
             const SizedBox(
               height: 10,
