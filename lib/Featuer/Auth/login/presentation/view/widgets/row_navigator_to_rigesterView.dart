@@ -15,7 +15,9 @@ class RowNavigatortoRigesterView extends StatelessWidget {
       children: [
         Text(
           'Create a new account  > ',
-          style: Styles.textStyle14.copyWith(fontWeight: FontWeight.bold),
+          style: Styles.textStyle14
+              .copyWith(fontWeight: FontWeight.bold)
+              .copyWith(color: Colors.black),
         ),
         GestureDetector(
             onTap: () {
@@ -24,7 +26,7 @@ class RowNavigatortoRigesterView extends StatelessWidget {
             child: Text('تسجيل',
                 style: Styles.textStyle14.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 42, 42, 42)))),
+                    color: const Color.fromARGB(255, 22, 22, 22)))),
       ],
     );
   }

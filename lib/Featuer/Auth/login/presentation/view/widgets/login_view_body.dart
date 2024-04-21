@@ -33,7 +33,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               height: 32,
             ),
             const Text(
-              "L     O     G     I     N",
+              "تسجيل      الدخول",
               textAlign: TextAlign.center,
               style: Styles.textStyleRL,
             ),
@@ -44,12 +44,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               thickness: 0.8,
               indent: 50,
               endIndent: 50,
-              color: Colors.grey,
+              color: Color.fromARGB(255, 35, 35, 35),
             ),
             const SizedBox(
               height: 250,
             ),
             const CustomTextfield(
+              validator: checkValidate,
               prefixIcon: Icon(Icons.email),
               label: Text(
                 'ادخل الأيمل',
@@ -64,11 +65,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               validator: checkValidate,
               obscureText: true,
               suffixIcon: IconButton(
-                  onPressed: () {}, icon: Icon(Icons.remove_red_eye)),
-              prefixIcon: Icon(Icons.lock),
+                  onPressed: () {}, icon: const Icon(Icons.remove_red_eye)),
+              prefixIcon: const Icon(Icons.lock),
               hint: 'كلمة المرور',
               hintText: '*******',
-              label: Text(
+              label: const Text(
                 'ادخل كلمة المرور',
               ),
             ),

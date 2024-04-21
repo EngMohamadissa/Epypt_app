@@ -23,6 +23,8 @@ if (flutterVersionName == null) {
 }
 
 android {
+    
+   
     namespace "com.example.eghypt_c"
     compileSdk flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion

@@ -20,6 +20,15 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
+    // Calculate horizontal padding as a percentage of the screen width
+    final double horizontalPadding =
+        screenSize.width * 0.05; // Example: 5% of screen width
+
+    // Calculate the text scale factor
+    final double textScaleFactor = screenSize.width < 600 ? 0.9 : 1.1;
+
     return Form(
       key: formKey,
       autovalidateMode: autovalidateMode,
@@ -31,7 +40,7 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
             const SizedBox(
               height: 32,
             ),
-            const Text("R   I   G   E   S   T   E   R",
+            const Text("حساب    جديد",
                 textAlign: TextAlign.center, style: Styles.textStyleRL),
             const SizedBox(
               height: 16,
@@ -40,7 +49,7 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
               thickness: 0.8,
               indent: 50,
               endIndent: 50,
-              color: Colors.grey,
+              color: Colors.black,
             ),
             const SizedBox(
               height: 150,
@@ -49,10 +58,9 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
               validator: checkValidate,
               prefixIcon: Icon(Icons.person),
               label: Text(
-                'Enter your first name',
+                'ادخل الأسم الثلاثي',
               ),
-              hint: 'Email',
-              hintText: 'firstname',
+              hintText: 'الأسم الثلاثي',
               //hintStyle: TextStyle(color: Colors.black),
             ),
             const SizedBox(
@@ -60,25 +68,11 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
             ),
             const CustomTextfield(
               validator: checkValidate,
-              prefixIcon: Icon(Icons.person_2),
+              prefixIcon: Icon(Icons.phone),
               label: Text(
-                'Enter your last name',
+                'ادخل الرقم',
               ),
-              hint: '',
-              hintText: 'last name',
-              // hintStyle: TextStyle(color: Colors.black),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const CustomTextfield(
-              validator: checkValidate,
-              prefixIcon: Icon(Icons.email),
-              label: Text(
-                'Enter your email',
-              ),
-              hint: 'Email',
-              hintText: 'Email',
+              hintText: '....20+',
               //  hintStyle: TextStyle(color: Colors.black),
             ),
             const SizedBox(
@@ -88,20 +82,108 @@ class _RigesterViewBodyState extends State<RigesterViewBody> {
               validator: checkValidate,
               obscureText: true,
               prefixIcon: Icon(Icons.lock),
-              hint: 'passowrd',
-              hintText: 'passowrd',
+              hintText: '*******',
               label: Text(
-                'Enter your password',
+                'ادخل كلمة السر',
               ),
             ),
             const SizedBox(
               height: 38,
             ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextfield(
+              validator: checkValidate,
+              isDense: true,
+              label: const Text('اسم المحل'),
+              labelStyle: const TextStyle(),
+              floatingLabelStyle: TextStyle(color: Colors.blue[300]),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextfield(
+              validator: checkValidate,
+              isDense: true,
+              label: const Text('نوع المحل'),
+              labelStyle: const TextStyle(),
+              floatingLabelStyle: TextStyle(color: Colors.blue[300]),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextfield(
+              validator: checkValidate,
+              isDense: true,
+              label: const Text('المحافظة'),
+              labelStyle: const TextStyle(),
+              floatingLabelStyle: TextStyle(color: Colors.blue[300]),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextfield(
+              validator: checkValidate,
+              isDense: true,
+              label: const Text('المنطقة'),
+              labelStyle: const TextStyle(),
+              floatingLabelStyle: TextStyle(color: Colors.blue[300]),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: const Color.fromARGB(255, 220, 213, 213),
+                ),
+                height: 50, // Consider making the height responsive if needed
+                child: Center(
+                  child: Text(
+                    'حدد موقع المنشأة',
+                    style: TextStyle(
+                      fontSize: 20 * textScaleFactor, // Apply the scale factor
+                      fontWeight: FontWeight.bold,
+                      // Apply other styles as needed
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextfield(
+              validator: checkValidate,
+              isDense: true,
+              label: const Text('العنوان'),
+              labelStyle: const TextStyle(),
+              floatingLabelStyle: TextStyle(color: Colors.blue[300]),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextfield(
+              validator: checkValidate,
+              isDense: true,
+              label: const Text('الكود(اختياري)'),
+              labelStyle: const TextStyle(),
+              floatingLabelStyle: TextStyle(color: Colors.blue[300]),
+            ),
+            const SizedBox(
+              height: 32,
+            ),
             CustomButon(
               onTap: () {
                 validateMethod();
               },
-              text: 'Rigester',
+              text: 'تسجيل',
+            ),
+            const SizedBox(
+              height: 16,
             ),
           ],
         ),

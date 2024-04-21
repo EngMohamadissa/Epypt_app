@@ -55,8 +55,12 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       children: [
         Container(
           margin: const EdgeInsets.symmetric(vertical: 6.0),
-          height: 200,
-          width: 250,
+          height: MediaQuery.of(context).size.width < 600
+              ? 150
+              : 200, // Adjust height based on screen width
+          width: MediaQuery.of(context).size.width < 600
+              ? 200
+              : 250, // Adjust width based on screen width
           child: PageView.builder(
             controller: _pageController,
             onPageChanged: (index) {
@@ -67,15 +71,16 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             itemCount: imageUrls.length,
             itemBuilder: (context, index) {
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 24.0),
+                margin: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width < 600
+                        ? 12.0
+                        : 24.0), // Adjust horizontal margin based on screen width
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
                   color: Colors.red,
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(
-                      imageUrls[index],
-                    ),
+                    image: AssetImage(imageUrls[index]),
                   ),
                 ),
               );
@@ -86,36 +91,40 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           imageUrls: imageUrls,
           selectIndex: selectIndex,
         ),
-        const SizedBox(
-          height: 20,
-        ),
-        // const SizedBox(
-        //   height: 50,
-        // ),
+        SizedBox(
+            height: MediaQuery.of(context).size.width < 600
+                ? 16
+                : 20), // Adjust height based on screen width
         const Text(
           'هتعمل فاتورتك منين انهارده؟',
           style: Styles.textStyle20,
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 70),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const ColumnCircleAvatarItem(
-              text: 'شركات',
-              subText: 'من الشركة لمحلك',
-            ),
-            Container(
-              color: Colors.grey,
-              height: 260,
-              width: 1,
-            ),
-            const ColumnCircleAvatarItem(
-              text: 'تجار',
-              subText: 'اشتري من تاجرك',
-            ),
-          ],
+        SizedBox(
+            height: MediaQuery.of(context).size.width < 600
+                ? 50
+                : 70), // Adjust height based on screen width
+        const ColumnCircleAvatarItem(
+          text: 'شركات',
+          subText: 'من الشركة لمحلك',
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.height < 600
+                ? 8.0
+                : 10.4, // تعديل البادينج بناءً على ارتفاع الشاشة
+          ),
+          child: Container(
+            color: Colors.grey,
+            height: MediaQuery.of(context).size.height < 600
+                ? 2
+                : 2.6, // تعديل الارتفاع بناءً على عرض الشاشة
+            width: 1,
+          ),
+        ),
+        const ColumnCircleAvatarItem(
+          text: 'تجار',
+          subText: 'اشتري من تاجرك',
         ),
       ],
     );
@@ -128,31 +137,37 @@ class ColumnCircleAvatarItem extends StatelessWidget {
     required this.text,
     required this.subText,
   });
+
   final String text;
   final String subText;
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final circleAvatarRadius = screenWidth < 600 ? 70.0 : 90.0;
+    final circleAvatarBackgroundSize = screenWidth < 600 ? 75.0 : 85.0;
+    const textStyle20 = Styles.textStyle20;
+    final subTextStyle20 =
+        Styles.textStyle20.copyWith(fontWeight: FontWeight.w600);
+
     return Column(
       children: [
-        const CircleAvatar(
-          radius: 90,
+        CircleAvatar(
+          radius: circleAvatarRadius,
           backgroundColor: Colors.yellow,
           child: CircleAvatar(
-            radius: 85,
-            backgroundImage: AssetImage(
-              'assets/images/test_image.png',
-            ),
+            radius: circleAvatarBackgroundSize,
+            backgroundImage: const AssetImage('assets/images/test_image.png'),
           ),
         ),
         Text(
           text,
-          style: Styles.textStyle20,
+          style: textStyle20,
         ),
         Text(
           subText,
-          style: Styles.textStyle20.copyWith(fontWeight: FontWeight.w600),
-        )
+          style: subTextStyle20,
+        ),
       ],
     );
   }

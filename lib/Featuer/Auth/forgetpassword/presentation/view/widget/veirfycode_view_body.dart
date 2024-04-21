@@ -1,8 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../../core/styles.dart';
@@ -24,7 +21,7 @@ class VeirfyCodeViewBody extends StatelessWidget {
             height: 32,
           ),
           const Text(
-            " Verivacation Code",
+            " التحقق من الكود",
             textAlign: TextAlign.center,
             style: Styles.textStyleRL,
           ),
@@ -51,7 +48,7 @@ class VeirfyCodeViewBody extends StatelessWidget {
             onTap: () {
               GoRouter.of(context).push(AppRouter.kResetpasswordView);
             },
-            text: 'Cheak',
+            text: 'تحقق',
           ),
         ],
       ),
@@ -60,7 +57,7 @@ class VeirfyCodeViewBody extends StatelessWidget {
 
   OtpTextField buildOtpcode() {
     return OtpTextField(
-      textStyle: TextStyle(fontSize: 22),
+      textStyle: const TextStyle(fontSize: 22),
       filled: true,
       fillColor: Colors.white,
       enabledBorderColor: Colors.grey,

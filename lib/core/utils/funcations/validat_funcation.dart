@@ -17,7 +17,7 @@
 
 String? checkValidate(data) {
   if (data!.isEmpty) {
-    return 'field is required';
+    return 'لا يمكن ترك هذا الحقل فارغ';
   }
   return null;
 }

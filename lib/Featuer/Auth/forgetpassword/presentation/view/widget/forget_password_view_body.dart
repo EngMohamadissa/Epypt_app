@@ -34,7 +34,7 @@ class _ForgetpassowrdViewBodyState extends State<ForgetpassowrdViewBody> {
               height: 32,
             ),
             const Text(
-              " Forget Passowrd ",
+              " نسيت كلمه السر ",
               textAlign: TextAlign.center,
               style: Styles.textStyleRL,
             ),
@@ -45,7 +45,7 @@ class _ForgetpassowrdViewBodyState extends State<ForgetpassowrdViewBody> {
               thickness: 0.8,
               indent: 50,
               endIndent: 50,
-              color: Colors.grey,
+              color: Colors.black,
             ),
             const SizedBox(
               height: 250,
@@ -53,9 +53,9 @@ class _ForgetpassowrdViewBodyState extends State<ForgetpassowrdViewBody> {
             const CustomTextfield(
               validator: checkValidate,
               prefixIcon: Icon(Icons.lock),
-              hint: 'passowrd',
+              hintText: 'كلمة السر',
               label: Text(
-                'Enter your email',
+                'ادخل الأيميل',
               ),
             ),
             const SizedBox(
@@ -68,7 +68,7 @@ class _ForgetpassowrdViewBodyState extends State<ForgetpassowrdViewBody> {
               onTap: () {
                 validateMethod();
               },
-              text: 'Cheak',
+              text: 'تحقق',
             ),
           ],
         ),

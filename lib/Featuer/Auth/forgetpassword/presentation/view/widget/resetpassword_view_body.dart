@@ -28,27 +28,27 @@ class _ResetpasswordViewBodyState extends State<ResetpasswordViewBody> {
         decoration: buildLinearGradient(),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
-            Text(
+            const Text(
               " تعيين كلمتك المرور",
               textAlign: TextAlign.center,
               style: Styles.textStyleRL,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
-            Divider(
+            const Divider(
               thickness: 0.8,
               indent: 50,
               endIndent: 50,
               color: Colors.grey,
             ),
-            SizedBox(
+            const SizedBox(
               height: 250,
             ),
-            CustomTextfield(
+            const CustomTextfield(
               validator: checkValidate,
               suffixIcon: Icon(Icons.remove_red_eye),
               prefixIcon: Icon(Icons.lock),
@@ -57,10 +57,10 @@ class _ResetpasswordViewBodyState extends State<ResetpasswordViewBody> {
                 'ادخل كلملة السر الجديدة',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            CustomTextfield(
+            const CustomTextfield(
               validator: checkValidate,
               obscureText: true,
               suffixIcon: Icon(Icons.remove_red_eye),
@@ -70,7 +70,7 @@ class _ResetpasswordViewBodyState extends State<ResetpasswordViewBody> {
                 'تأكيد كلملة السر الجديدة',
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 38,
             ),
             CustomButon(
