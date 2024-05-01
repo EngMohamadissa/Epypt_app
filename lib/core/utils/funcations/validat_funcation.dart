@@ -21,3 +21,10 @@ String? checkValidate(data) {
   }
   return null;
 }
+
+String? checkValidateDrowp(value) {
+  if (value == null || value.isEmpty) {
+    return 'لا يمكن ترك هذا الحقل فارغ';
+  }
+  return null;
+}

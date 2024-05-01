@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'product_view_body.dart';
 
 class TabBarViewBody extends StatelessWidget {

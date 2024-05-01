@@ -5,9 +5,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../../../core/styles.dart';
 import '../../../../../../core/utils/funcations/build_linear_greadient.dart';
 import '../../../../../../core/widget/custom_botton.dart';
-import '../../../../../../core/widget/custom-text-field.dart';
+import '../../../../../../core/widget/custom_text_field.dart';
 import 'row_navigator_to_forgetpassowrd.dart';
-import 'row_navigator_to_rigesterView.dart';
+import 'row_navigator_to_rigester_view.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});

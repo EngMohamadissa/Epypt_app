@@ -1,4 +1,8 @@
+import 'package:eghypt_c/Featuer/Auth/login/presentation/view/login_view.dart';
+import 'package:eghypt_c/Featuer/Companies/presentation/view/companies_page.dart';
 import 'package:eghypt_c/Featuer/bill_view/presentation/view/bill_view.dart';
+import 'package:eghypt_c/Featuer/notifications/presentation/view/notifications_view.dart';
+import 'package:eghypt_c/Featuer/products/presentation/view/product_view.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:eghypt_c/Featuer/home/presentation/view/home_view.dart';
@@ -19,10 +23,16 @@ abstract class AppRouter {
   static const kMyDataView = '/mydataView';
   static const kBillsView = '/billsView';
   static const kOrderView = '/orderView';
+  static const kProductView = '/productView';
+  static const kNotificationView = '/notificationView';
+  static const khomepagemasaView = '/homepagemasaView';
 
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const MyData()),
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const LoginView(),
+      ),
       GoRoute(
         path: kRigesterView,
         builder: (context, state) => const RigesterView(),
@@ -50,6 +60,18 @@ abstract class AppRouter {
       GoRoute(
         path: kBillsView,
         builder: (context, state) => const BillsView(),
+      ),
+      GoRoute(
+        path: kProductView,
+        builder: (context, state) => const ProductPageView(),
+      ),
+      GoRoute(
+        path: kNotificationView,
+        builder: (context, state) => const NotificationsView(),
+      ),
+      GoRoute(
+        path: khomepagemasaView,
+        builder: (context, state) => const HomePagemasa(),
       ),
     ],
   );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/widget/custom-text-field.dart';
+import '../../../../../core/widget/custom_text_field.dart';
 import 'elevated_botton_data.dart';
 
 class MyDataViewBody extends StatefulWidget {
@@ -15,7 +15,6 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
   bool _isEditable = false;
   String? selectedProduct;
   String buttonText = 'تعديل البيانيات';
-  void Function(String?)? onChanged;
 
   void _toggleState() {
     setState(() {
@@ -23,12 +22,6 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
 
       buttonText =
           buttonText == 'تعديل البيانيات' ? 'حفظ البيانيات' : 'تعديل البيانيات';
-
-      onChanged = onChanged == null
-          ? (String? newValue) {
-              selectedProduct = newValue;
-            }
-          : null;
     });
   }
 
@@ -41,20 +34,15 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    // Get the screen size
     final Size screenSize = MediaQuery.of(context).size;
 
-    // Calculate horizontal padding as a percentage of the screen width
-    final double horizontalPadding =
-        screenSize.width * 0.05; // Example: 5% of screen width
+    final double horizontalPadding = screenSize.width * 0.05;
 
-    // Calculate the text scale factor
-    final double textScaleFactor =
-        screenSize.width < 600 ? 0.9 : 1.1; // Smaller scale for smaller screens
+    final double textScaleFactor = screenSize.width < 600 ? 0.9 : 1.1;
     return ListView(
       children: [
-        const SizedBox(
-          height: 16,
+        SizedBox(
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         CustomTextfield(
           readOnly: true,
@@ -72,9 +60,7 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
           floatingLabelStyle: TextStyle(color: Colors.blue[300]),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         CustomTextfield(
           readOnly: !_isEditable,
@@ -88,9 +74,7 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
           floatingLabelStyle: TextStyle(color: Colors.blue[300]),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         CustomTextfield(
           readOnly: true,
@@ -104,48 +88,21 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
           floatingLabelStyle: TextStyle(color: Colors.blue[300]),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 8),
-          child: Container(
-            height: MediaQuery.of(context).size.width < 600
-                ? 40
-                : 60, // Adjust height based on screen width
-            width: double.infinity, // Set width to fill available space
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 205, 203, 203),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: DropdownButton<String>(
-                iconEnabledColor: Colors.black,
-                value: selectedProduct,
-                isExpanded: true,
-                iconSize: 24,
-                elevation: 16,
-                style: const TextStyle(color: Colors.black),
-                underline: Container(
-                  height: 2,
-                ),
-                onChanged: onChanged,
-                items: products.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-            ),
+        CustomTextfield(
+          readOnly: true,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          isDense: true,
+          label: const Text('نوع المحل '),
+          hintText: 'سوبرماركت',
+          labelStyle: TextStyle(
+            color: Colors.blue[300],
           ),
+          floatingLabelStyle: TextStyle(color: Colors.blue[300]),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         CustomTextfield(
           readOnly: true,
@@ -159,9 +116,7 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
           floatingLabelStyle: TextStyle(color: Colors.blue[300]),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         CustomTextfield(
           readOnly: true,
@@ -175,9 +130,7 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
           floatingLabelStyle: TextStyle(color: Colors.blue[300]),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
@@ -186,26 +139,23 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
               borderRadius: BorderRadius.circular(8),
               color: const Color.fromARGB(255, 220, 213, 213),
             ),
-            height: 50, // Consider making the height responsive if needed
+            height: 50,
             child: Center(
               child: Text(
                 'حدد موقع المنشأة',
                 style: TextStyle(
-                  fontSize: 20 * textScaleFactor, // Apply the scale factor
+                  fontSize: 20 * textScaleFactor,
                   fontWeight: FontWeight.bold,
-                  // Apply other styles as needed
                 ),
               ),
             ),
           ),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         CustomTextfield(
-          readOnly: !_isEditable,
+          readOnly: true,
           floatingLabelBehavior: FloatingLabelBehavior.always,
           isDense: true,
           hintText: 'شارع 17',
@@ -216,9 +166,7 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
           floatingLabelStyle: TextStyle(color: Colors.blue[300]),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         CustomTextfield(
           readOnly: true,
@@ -232,9 +180,7 @@ class _MyDataViewBodyState extends State<MyDataViewBody> {
           floatingLabelStyle: TextStyle(color: Colors.blue[300]),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.width < 600
-              ? 16
-              : 24, // Adjust height based on screen width
+          height: MediaQuery.of(context).size.width < 600 ? 16 : 24,
         ),
         ElevatedBottonData(
           data: buttonText,

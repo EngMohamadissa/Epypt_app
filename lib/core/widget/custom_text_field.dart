@@ -89,7 +89,7 @@ class CustomTextfield extends StatelessWidget {
             filled: true,
             enabledBorder: buildBorder(),
             border: buildBorder(),
-            focusedBorder: buildBorder(const Color.fromARGB(255, 74, 67, 2)),
+            focusedBorder: buildBorder(const Color.fromARGB(255, 194, 38, 14)),
             suffix: suffix),
       ),
     );
@@ -99,7 +99,7 @@ class CustomTextfield extends StatelessWidget {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
       borderSide:
-          BorderSide(color: color ?? const Color.fromARGB(255, 50, 50, 50)),
+          BorderSide(color: color ?? const Color.fromARGB(255, 226, 23, 23)),
     );
   }
 }

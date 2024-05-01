@@ -6,7 +6,7 @@ import '../../../../../../core/styles.dart';
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/funcations/build_linear_greadient.dart';
 import '../../../../../../core/widget/custom_botton.dart';
-import '../../../../../../core/widget/custom-text-field.dart';
+import '../../../../../../core/widget/custom_text_field.dart';
 
 class ForgetpassowrdViewBody extends StatefulWidget {
   const ForgetpassowrdViewBody({

@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:eghypt_c/core/styles.dart';
+import 'package:eghypt_c/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'row_indecator_page_view.dart';
 
 class HomeViewBody extends StatefulWidget {
@@ -110,15 +112,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-            vertical: MediaQuery.of(context).size.height < 600
-                ? 8.0
-                : 10.4, // تعديل البادينج بناءً على ارتفاع الشاشة
+            vertical: MediaQuery.of(context).size.height < 600 ? 8.0 : 10.4,
           ),
           child: Container(
             color: Colors.grey,
-            height: MediaQuery.of(context).size.height < 600
-                ? 2
-                : 2.6, // تعديل الارتفاع بناءً على عرض الشاشة
+            height: MediaQuery.of(context).size.height < 600 ? 2 : 2.6,
             width: 1,
           ),
         ),
@@ -150,25 +148,30 @@ class ColumnCircleAvatarItem extends StatelessWidget {
     final subTextStyle20 =
         Styles.textStyle20.copyWith(fontWeight: FontWeight.w600);
 
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: circleAvatarRadius,
-          backgroundColor: Colors.yellow,
-          child: CircleAvatar(
-            radius: circleAvatarBackgroundSize,
-            backgroundImage: const AssetImage('assets/images/test_image.png'),
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.khomepagemasaView);
+      },
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: circleAvatarRadius,
+            backgroundColor: Colors.yellow,
+            child: CircleAvatar(
+              radius: circleAvatarBackgroundSize,
+              backgroundImage: const AssetImage('assets/images/boy.png'),
+            ),
           ),
-        ),
-        Text(
-          text,
-          style: textStyle20,
-        ),
-        Text(
-          subText,
-          style: subTextStyle20,
-        ),
-      ],
+          Text(
+            text,
+            style: textStyle20,
+          ),
+          Text(
+            subText,
+            style: subTextStyle20,
+          ),
+        ],
+      ),
     );
   }
 }

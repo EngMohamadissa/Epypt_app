@@ -11,7 +11,7 @@ class RowBills extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'المنتج الأول',
+          'المنتج الأول' '4' 'x',
           style: TextStyle(fontSize: 20),
         ),
         Text(

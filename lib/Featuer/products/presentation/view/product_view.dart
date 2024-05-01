@@ -1,22 +1,20 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:eghypt_c/Featuer/products/presentation/view/widget/tab_bar_view.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/styles.dart';
 import '../../../cart/presentation/view/cart_view.dart';
+import 'widget/tab_bar_view.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
+class ProductPageView extends StatefulWidget {
+  const ProductPageView({super.key});
   @override
   // ignore: library_private_types_in_public_api
-  MyHomePageState createState() => MyHomePageState();
+  ProductPageViewState createState() => ProductPageViewState();
 }
 
-class MyHomePageState extends State<MyHomePage>
+class ProductPageViewState extends State<ProductPageView>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   List<Product> cartItems = [];
-
   @override
   void initState() {
     super.initState();
@@ -35,7 +33,7 @@ class MyHomePageState extends State<MyHomePage>
         animType: AnimType.scale,
         desc: 'تم إضافة العنصر بالفعل',
         btnOkOnPress: () {},
-        btnOkText: 'موافق', // تغيير نص الزر هنا
+        btnOkText: 'موافق',
       ).show();
     }
   }
